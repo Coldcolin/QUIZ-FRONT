@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    height: 100vh;
+}
+.container ol li{
+    font-size: 1.4em;
+    color: #cecece;
+}
+
+.start{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5em;
+}
+
+.start .btn{
+    padding: .2em 1.7em;
+    border: none;
+    border-radius: .1em;
+    font-size: 1.2em;
+    color: #202020;
+    text-decoration: none;
+    background-color: #faff5a;
+}
+
+#form{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#form .userid{
+    padding: .7em 2em;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+.logo{
+    width: 200px;
+    height: 100px;
+}
+.logo-img{
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+}
+
+@media Screen and (width <= 726px) {
+    .start .btn{
+        margin-bottom: 30px;
+    }
+}
+
+@media Screen and (width <= 425px) {
+    .container ol li{
+        font-size: 1em;
+    }
+    .container .title{
+        font-size: 1.5em;
+    }
+    .logo{
+        height: 80px;
+    }
+}
+
+@media Screen and (width = 320px){
+    .container .title{
+        font-size: 1.5em;
+    }
+}
