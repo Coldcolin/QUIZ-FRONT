@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setUserId } from '../redux/result_reducer'
-import '../styles/Main.css'
+import '../Styles/Main.css'
 import logo from "../assets/curve2.b90648ddd7482f82d25a (1).png"
 
 const Real = () => {
