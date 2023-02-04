@@ -13,6 +13,7 @@ body, html{
 
 * > *{
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 .container{
@@ -30,7 +31,7 @@ body, html{
 .container .title{
     font-size: 3em;
     text-align: center;
-    border: 5px solid var(--primary-color);
+    /* border: 5px solid var(--primary-color); */
     /* padding: .3em .2em; */
     width: 80%;
     text-align: center;
@@ -177,11 +178,15 @@ input[type=radio]:checked ~ .text-primary{
   background: var(--primary-color)
 }
 
-@media Screen and (max-width <= 320px) {
+@media Screen and (width <= 320px) {
   .text-light{
-      font-size: 16px;
+      font-size: 1.3em;
   }
-  .container .title{
-    font-size: 2em;
-}
+
+  .container .questions{
+    padding: 1em;
+  }
+  .text-primary{
+    font-size: 1.2em;
+  }
 }
