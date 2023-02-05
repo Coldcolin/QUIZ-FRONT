@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import '../Styles/Result.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { ThemeContext } from '../api/Context';
 
 import ResultTable from './ResultTable';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +14,7 @@ import { usePublishResult } from '../hooks/setResult';
 
 
 export default function Result() {
-
+    const {time, stop, reset} = useContext(ThemeContext)
     const dispatch = useDispatch()
     const { questions : { queue ,answers}, result : { result, userId}}  = useSelector(state => state)
 
@@ -32,9 +33,14 @@ export default function Result() {
         achieved : flag ? "Passed" : "Failed" });
 
     function onRestart(){
-        dispatch(resetAllAction())
-        dispatch(resetResultAction())
+        dispatch(resetAllAction());
+        dispatch(resetResultAction());
+        reset();
     }
+
+    useEffect(()=>{
+        stop()
+    }, [])
 
   return (
     <div className='container'>
@@ -42,7 +48,7 @@ export default function Result() {
 
         <div className='result flex-center'>
             <div className='flex'>
-                <span>Username</span>
+                <span>Username : </span>
                 <span className='bold'>{userId || ""}</span>
             </div>
             <div className='flex'>
@@ -60,6 +66,10 @@ export default function Result() {
             <div className='flex'>
                 <span>Total Earn Points : </span>
                 <span className='bold'>{earnPoints || 0}</span>
+            </div>
+            <div className='flex'>
+                <span>Time Used : </span>
+                <span className='bold'>{(time/1000) || 0}s</span>
             </div>
             <div className='flex'>
                 <span>Quiz Result</span>

@@ -177,6 +177,11 @@ input[type=radio]:checked ~ .text-primary{
 .checked::before{
   background: var(--primary-color)
 }
+.numbers{
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+}
 
 @media Screen and (width <= 320px) {
   .text-light{

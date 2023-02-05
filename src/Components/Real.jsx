@@ -1,11 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setUserId } from '../redux/result_reducer'
 import '../Styles/Main.css'
 import logo from "../assets/curve2.b90648ddd7482f82d25a (1).png"
+import { ThemeContext } from '../api/Context'
 
 const Real = () => {
+  const {start} = useContext(ThemeContext)
+    
     const inputRef = useRef(null)
     const dispatch = useDispatch()
 
@@ -14,6 +17,7 @@ const Real = () => {
         if(inputRef.current?.value){
             dispatch(setUserId(inputRef.current?.value))
         }
+        start()
     }
   return (
     <div className='container'>
