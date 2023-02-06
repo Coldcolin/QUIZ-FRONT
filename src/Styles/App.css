@@ -147,10 +147,10 @@ ul li .check::before {
   position: absolute;
 	content: '';
   border-radius: 100%;
-  height: 15px;
-  width: 15px;
-  top: 5px;
-	left: 5px;
+  height: 13px;
+  width: 13px;
+  top: 0.9px;
+	left: 0.49px;
   margin: auto;
 	transition: background 0.25s linear;
 	-webkit-transition: background 0.25s linear;

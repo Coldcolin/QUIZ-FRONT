@@ -59,6 +59,7 @@
 @media Screen and (width <= 425px) {
     .container ol li{
         font-size: 1em;
+        padding-inline: 10px;
     }
     .container .title{
         font-size: 1.5em;
