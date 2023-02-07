@@ -8,7 +8,7 @@ import Watch from './Watch';
 import { ThemeContext } from '../api/Context';
 
 const Quiz = () => {
-  const {time} = useContext(ThemeContext)
+  const {time, stop} = useContext(ThemeContext)
     const [check, setChecked] = useState(undefined)
     const { queue, trace } = useSelector(state => state.questions);
     const result = useSelector(state => state.result.result);

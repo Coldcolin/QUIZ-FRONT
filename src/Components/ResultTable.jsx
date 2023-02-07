@@ -12,7 +12,7 @@ export default function ResultTable() {
     },[])
 
   return (
-    <div>
+    <div className="result-table">
         <table>
             <thead className='table-header'>
                 <tr className='table-row'>

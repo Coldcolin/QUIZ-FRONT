@@ -3,7 +3,7 @@ import '../Styles/Result.css';
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../api/Context';
 
-import ResultTable from './ResultTable';
+// import ResultTable from './ResultTable';
 import { useDispatch, useSelector } from 'react-redux';
 import { attempts_Number, earnPoints_Number, flagResult } from '../helper/helper';
 
@@ -25,12 +25,7 @@ export default function Result() {
 
 
     /** store user result */
-    usePublishResult({ 
-        result, 
-        username : userId,
-        attempts,
-        points: earnPoints,
-        achieved : flag ? "Passed" : "Failed" });
+    
 
     function onRestart(){
         dispatch(resetAllAction());
@@ -39,11 +34,24 @@ export default function Result() {
     }
 
     useEffect(()=>{
-        stop()
+        stop();
+    }, [])
+
+    useEffect(()=>{
+        const sendData = setTimeout(() => {
+            usePublishResult({ 
+                result, 
+                username : userId,
+                attempts,
+                points: earnPoints,
+                achieved : flag ? "Passed" : "Failed" 
+            });
+            return () => clearTimeout(sendData)
+        }, 2000)
     }, [])
 
   return (
-    <div className='container'>
+    <div className='result-container'>
         <h1 className='title text-light'>The Curve Entrance Quiz</h1>
 
         <div className='result flex-center'>
@@ -83,7 +91,7 @@ export default function Result() {
 
         <div className="container">
             {/* result table */}
-            <ResultTable></ResultTable>
+            {/* <ResultTable></ResultTable> */}
         </div>
     </div>
   )
