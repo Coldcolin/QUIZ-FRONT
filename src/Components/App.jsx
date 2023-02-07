@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import {createHashRouter, RouterProvider} from "react-router-dom"
 import "../Styles/App.css"
 import Real from "./Real"
 import Quiz from "./Quiz"
@@ -6,7 +6,7 @@ import Result from "./Result"
 import ResultTable from "./ResultTable"
 import { CheckUserExist } from '../helper/helper';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Real/>
