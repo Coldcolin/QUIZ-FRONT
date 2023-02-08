@@ -77,10 +77,10 @@ export default function Result() {
             </div>
             <div className='flex'>
                 <span>Time Used : </span>
-                <span className='bold'>{(time/1000) || 0}s</span>
+                <span className='bold'>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}mins</span>
             </div>
             <div className='flex'>
-                <span>Quiz Result</span>
+                <span>Quiz Result : </span>
                 <span style={{ color : `${flag ? "#2aff95" : "#ff2a66" }` }} className='bold'>{flag ? "Passed" : "Failed"}</span>
             </div>
         </div>
