@@ -77,7 +77,7 @@ export default function Result() {
             </div>
             <div className='flex'>
                 <span>Time Used : </span>
-                <span className='bold'>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}mins</span>
+                <span className='bold'>{("0" + Math.floor((time / 60000) % 60)).slice(-2)} mins</span>
             </div>
             <div className='flex'>
                 <span>Quiz Result : </span>
