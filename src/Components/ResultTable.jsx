@@ -6,7 +6,7 @@ export default function ResultTable() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        getServerData(`https://quiz-back-production.up.railway.app/api/result`, (res) => {
+        getServerData(`https://curve-quiz.onrender.com/api/result`, (res) => {
             setData(res)
         })
     },[])

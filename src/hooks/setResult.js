@@ -22,7 +22,7 @@ export const usePublishResult = (resultData) => {
     (async () => {
         try {
             if(result !== [] && !username) throw new Error("Couldn't get Result");
-            await postServerData(`https://quiz-back-production.up.railway.app/api/result`, resultData, data => data)
+            await postServerData(`https://curve-quiz.onrender.com/api/result`, resultData, data => data)
         } catch (error) {
             console.log(error)
         }
