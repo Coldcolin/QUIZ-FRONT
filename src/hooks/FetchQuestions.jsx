@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useDispatch } from "react-redux";
 import { getServerData } from "../helper/helper";
+import {ThemeContext} from "../api/Context"
 
 /** redux actions */
 import * as Action from '../redux/question_reducer'
 
 /** fetch question hook to fetch api data and set value to store */
 export const useFetchQestion = () => {
+    const {start} = useContext(ThemeContext)
     const dispatch = useDispatch();   
     const [getData, setGetData] = useState({ isLoading : false, apiData : [], serverError: null});
 
@@ -24,7 +26,7 @@ export const useFetchQestion = () => {
 
                     /** dispatch an action */
                     dispatch(Action.startExamAction({ question : questions, answers }))
-
+                    start()
                 } else{
                     throw new Error("No Question Avalibale");
                 }

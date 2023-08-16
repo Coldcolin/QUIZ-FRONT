@@ -17,7 +17,7 @@ const Real = () => {
         if(inputRef.current?.value){
             dispatch(setUserId(inputRef.current?.value))
         }
-        start()
+        // start()
     }
   return (
     <div className='container'>
@@ -31,7 +31,7 @@ const Real = () => {
             <li>10 points is awarded for the correct answer.</li>
             <li>Each question has three options. You can choose only one option.</li>
             <li>You can review and change answers before the quiz finishes.</li>
-            <li>The result will be declared at the end of the quiz. You have 5 mins to finish.</li>
+            <li>The result will be declared at the end of the quiz. You have 15 mins to finish.</li>
         </ol>
 
         <form id="form">

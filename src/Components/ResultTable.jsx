@@ -4,11 +4,22 @@ import { getServerData } from '../helper/helper'
 export default function ResultTable() {
 
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+    const getResults =async()=>{
+        try{
+            setLoading(true)
         getServerData(`https://curve-quiz.onrender.com/api/result`, (res) => {
+            setLoading(false)
             setData(res)
         })
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getResults()
     },[])
 
   return (
@@ -18,12 +29,14 @@ export default function ResultTable() {
                 <tr className='table-row'>
                     <td>Name</td>
                     <td>Attempts</td>
-                    <td>Earn Points</td>
+                    <td>Earned Points</td>
                     <td>Result</td>
                 </tr>
             </thead>
-            <tbody>
-                { !data ?? <div>No Data Found </div>}
+            {
+                loading? <tbody><tr><td>Loading Data...</td></tr></tbody>:
+                <tbody>
+                {/* { !data ?? <tr><td>No Data Found </td></tr>} */}
                 {
                     data?.map((v, i) => (
                         <tr className='table-body' key={i}>
@@ -36,6 +49,7 @@ export default function ResultTable() {
                 }
                 
             </tbody>
+            }
         </table>
     </div>
   )

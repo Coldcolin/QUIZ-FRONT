@@ -45,7 +45,7 @@ const Quiz = () => {
         setChecked(check)
     }
 
-    if((result.length && result.length >= queue.length)|| time === 300000){
+    if((result.length && result.length >= queue.length)|| time === 750000){
         return <Navigate to={'/result'} replace={true}></Navigate>
     }
 
