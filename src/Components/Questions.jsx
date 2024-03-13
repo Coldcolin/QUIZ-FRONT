@@ -15,6 +15,7 @@ export default function Questions({ onChecked }) {
     const [{ isLoading, apiData, serverError}] = useFetchQestion() 
 
     const questions = useSelector(state => state.questions.queue[state.questions.trace])
+    const number = useSelector(state => state.questions.trace)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,7 +34,7 @@ export default function Questions({ onChecked }) {
 
   return (
     <div className='questions'>
-        <h2 className='text-light'>{questions?.question}</h2>
+        <h2 className='text-light'>{number + 1}{". "}{questions?.question}</h2>
 
         <ul key={questions?.id}>
             {

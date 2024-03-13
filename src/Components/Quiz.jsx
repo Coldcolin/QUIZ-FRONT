@@ -58,7 +58,7 @@ const Quiz = () => {
 
         <div className='grid'>
         { trace > 0 ? <button className='btn prev' onClick={onPrev}>Prev</button> : <div></div>}
-            <button className='btn next' onClick={onNext}>Next</button>
+            <button className='btn next' onClick={onNext}>{(trace + 1) == 10? "Submit":"Next"}</button>
         </div>
     </div>
   )
