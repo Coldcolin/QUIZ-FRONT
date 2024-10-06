@@ -41,7 +41,8 @@ export default function Result() {
         const sendData = setTimeout(() => {
             usePublishResult({ 
                 result, 
-                username : userId,
+                username : userId.name,
+                course : userId.course,
                 attempts,
                 points: earnPoints,
                 achieved : flag ? "Passed" : "Failed" 
@@ -57,7 +58,7 @@ export default function Result() {
         <div className='result flex-center'>
             <div className='flex'>
                 <span>Username : </span>
-                <span className='bold'>{userId || ""}</span>
+                <span className='bold'>{userId.name || ""}</span>
             </div>
             <div className='flex'>
                 <span>Total Quiz Points : </span>

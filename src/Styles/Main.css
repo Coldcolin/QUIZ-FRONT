@@ -28,8 +28,17 @@
 
 #form{
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     margin-top: 2em;
+}
+
+.select-course{
+    height: 50px;
+    font-size: 17px;
+    color: grey;
+    padding-inline: 10px;
 }
 
 #form .userid{

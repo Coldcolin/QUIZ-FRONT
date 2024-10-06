@@ -9,7 +9,7 @@ export default function ResultTable() {
     const getResults =async()=>{
         try{
             setLoading(true)
-        getServerData(`https://curve-quiz.onrender.com/api/result`, (res) => {
+        getServerData(`https://thecurvequizbackend.vercel.app/api/result`, (res) => {
             setLoading(false)
             setData(res)
         })
@@ -28,6 +28,7 @@ export default function ResultTable() {
             <thead className='table-header'>
                 <tr className='table-row'>
                     <td>Name</td>
+                    <td>Course</td>
                     <td>Attempts</td>
                     <td>Earned Points</td>
                     <td>Result</td>
@@ -41,6 +42,7 @@ export default function ResultTable() {
                     data?.map((v, i) => (
                         <tr className='table-body' key={i}>
                             <td>{v?.username || ''}</td>
+                            <td>{v?.course || ''}</td>
                             <td>{v?.attempts || 0}</td>
                             <td>{v?.points || 0}</td>
                             <td>{v?.achieved || ""}</td>

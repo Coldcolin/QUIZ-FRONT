@@ -1,21 +1,23 @@
-import React, { useRef, useContext } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setUserId } from '../redux/result_reducer'
 import '../Styles/Main.css'
 import logo from "../assets/curve2.b90648ddd7482f82d25a (1).png"
-import { ThemeContext } from '../api/Context'
+// import { ThemeContext } from '../api/Context'
 
 const Real = () => {
-  const {start} = useContext(ThemeContext)
+//   const {start} = useContext(ThemeContext)
+
+  const [userInfo, setUserInfo]= useState()
     
-    const inputRef = useRef(null)
+    // const inputRef = useRef(null)
     const dispatch = useDispatch()
 
 
     function startQuiz(){
-        if(inputRef.current?.value){
-            dispatch(setUserId(inputRef.current?.value))
+        if((userInfo.name !== "") && (userInfo.course !== "")){
+            dispatch(setUserId(userInfo))
         }
         // start()
     }
@@ -34,9 +36,15 @@ const Real = () => {
             <li>The result will be declared at the end of the quiz. You have 15 mins to finish.</li>
         </ol>
 
-        <form id="form">
-            <input ref={inputRef} className="userid" type="text" placeholder='Username*' />
-        </form>
+        <div id="form">
+            <input onChange={(e)=> setUserInfo((prev)=>{return{...prev, name: e.target.value}})} className="userid" type="text" placeholder='Full Name' />
+            <select className='select-course' required={true} onChange={(e)=> setUserInfo((prev)=>{return{...prev, course: e.target.value}})}>
+                <option>--select course--</option>
+                <option>Frontend Development</option>
+                <option>Backend Development</option>
+                <option>Product Design</option>
+            </select>
+        </div>
 
         <div className='start'>
             <Link className='btn' to={'quiz'} onClick={startQuiz}>Start Quiz</Link>
