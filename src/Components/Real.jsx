@@ -28,12 +28,13 @@ const Real = () => {
         </div>
         <h1 className='title text-light'>The Curve Entrance Quiz</h1>
 
-        <ol>
+        <ol style={{ listStyleType: 'disc' }}>
             <li>You will be asked 10 questions one after another.</li>
             <li>10 points is awarded for the correct answer.</li>
             <li>Each question has three options. You can choose only one option.</li>
             <li>You can review and change answers before the quiz finishes.</li>
-            <li>The result will be declared at the end of the quiz. You have 15 mins to finish.</li>
+            <li>The result will be declared at the end of the quiz. You have 10 mins to finish.</li>
+            <li>Make sure to only click submit when you are done with the quiz</li>
         </ol>
 
         <div id="form">
