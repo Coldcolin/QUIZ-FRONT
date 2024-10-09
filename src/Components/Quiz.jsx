@@ -13,6 +13,7 @@ const Quiz = () => {
     const { queue, trace } = useSelector(state => state.questions);
     const result = useSelector(state => state.result.result);
     const dispatch = useDispatch()
+    const [disableNext, setDisableNext] = useState(true)
 
     useEffect(() => {
         // console.log(state)
@@ -54,11 +55,11 @@ const Quiz = () => {
         <h1 className='title text-light'>The Curve Entrance Quiz</h1>
         <Watch/>
         {/* display questions */}
-        <Questions onChecked={onChecked} />
+        <Questions onChecked={onChecked} setDisableNext={setDisableNext}/>
 
         <div className='grid'>
         { trace > 0 ? <button className='btn prev' onClick={onPrev}>Prev</button> : <div></div>}
-            <button className='btn next' onClick={onNext}>{(trace + 1) == 10? "Submit":"Next"}</button>
+            <button className='btn next' onClick={onNext} disabled={disableNext}>{(trace + 1) == 10? "Submit":"Next"}</button>
         </div>
     </div>
   )

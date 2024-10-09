@@ -7,7 +7,7 @@ import { useFetchQestion } from '../hooks/FetchQuestions.jsx'
 import { updateResult } from '../hooks/setResult'
 
 
-export default function Questions({ onChecked }) {
+export default function Questions({ onChecked, setDisableNext }) {
 
     const [checked, setChecked] = useState(undefined)
     const { trace } = useSelector(state => state.questions);
@@ -21,6 +21,12 @@ export default function Questions({ onChecked }) {
     useEffect(() => {
         dispatch(updateResult({ trace, checked}))
     }, [checked])
+
+    useEffect(()=>{
+        if(isLoading === false){
+            setDisableNext(false)
+        }
+    },[isLoading])
     
     function onSelect(i){
         onChecked(i)
